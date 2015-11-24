@@ -1,6 +1,30 @@
-var path = require("path");
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+'use strict';
+let path = require("path");
+let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
+let basePlugins = [
+  new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
+  new HtmlWebpackPlugin({
+    template: './app/index.html',
+    inject: 'body',
+    minify: false
+  })
+];
+
+let devPlugins = [];
+
+let prodPlugins = [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  })
+];
+
+const plugins = basePlugins
+  .concat(process.env.NODE_ENV === 'production' ? prodPlugins : [])
+  .concat(process.env.NODE_ENV === 'development' ? devPlugins : []);
 
 module.exports = {
   context: path.resolve(__dirname, 'app'),
@@ -38,15 +62,8 @@ module.exports = {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
   },
   
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
-    new HtmlWebpackPlugin({
-      template: './app/index.html',
-      inject: 'body',
-      minify: false
-    })
-  ],
-  
+  plugins: plugins,
+
   module: {
     preLoaders: [{
       test: /\.ts$/,
