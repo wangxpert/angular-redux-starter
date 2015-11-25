@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Rangle's Angular/TypeScript/Webpack Starter Project",
   "license": "MIT",
+  "engines": {
+    "node": "4.x"
+  },
   "scripts": {
-    "postinstall": "npm run typings",
+    "postinstall": "npm run typings; npm run build;",
     "typings": "rimraf app/__typings && tsd install && tsd link",
-    "start": "webpack-dev-server --inline --colors --display-error-details --display-cached",
+    "dev": "NODE_ENV=development webpack-dev-server --display-error-details --display-cached",
+    "start": "NODE_ENV=production node server.js",
     "clean": "rimraf app/__build",
     "build": "npm run clean && webpack",
     "test": "karma start",
@@ -24,12 +28,15 @@
     "angular": "^1.4.7",
     "angular-ui-router": "^0.2.15",
     "basscss": "^7.0.4",
+    "chalk": "^1.1.1",
     "es6-shim": "^0.33.10",
+    "express": "^4.13.3",
     "font-awesome": "^4.4.0",
     "immutable": "^3.7.5",
     "koast-angular": "^0.2.2",
     "lodash-compat": "^3.10.1",
-    "rx": "4.0.0"
+    "rx": "4.0.0",
+    "winston": "^2.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.7",
