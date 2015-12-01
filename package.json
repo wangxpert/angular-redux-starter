@@ -1,18 +1,24 @@
 {
-  "name": "ng-typescript-webpack-startert",
-  "version": "1.0.0",
-  "description": "Rangle's Angular/TypeScript/Webpack Starter Project",
+  "name": "angular-redux-starter",
+  "version": "0.1.0",
+  "description": "A boiler-plate setup for Angular/Redux applications",
   "license": "MIT",
+  "keywords": [
+    "angular",
+    "redux",
+    "typescript"
+  ],
   "engines": {
     "node": "4.x"
   },
   "scripts": {
     "postinstall": "npm run typings; npm run build;",
-    "typings": "rimraf app/__typings && tsd install && tsd link",
+    "typings": "rimraf typings && tsd install && tsd link",
     "dev": "NODE_ENV=development webpack-dev-server --display-error-details --display-cached",
     "start": "NODE_ENV=production node server.js",
-    "clean": "rimraf app/__build",
-    "build": "npm run clean && webpack",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack",
     "test": "karma start",
     "e2e": "npm run build && gulp e2e"
   },
@@ -20,7 +26,6 @@
     "type": "git",
     "url": "https://github.com/rangle/ng-typescript-webpack-starter.git"
   },
-  "author": "Igor Krivanov",
   "bugs": {
     "url": "https://github.com/rangle/ng-typescript-webpack-starter/issues"
   },

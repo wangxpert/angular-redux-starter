@@ -4,7 +4,7 @@ import 'koast-angular';
 
 import 'basscss/css/basscss.css';
 import 'font-awesome/css/font-awesome.css';
-import '../css/styles.css';
+import './styles/styles.css';
 
 import * as angular from 'angular';
 import * as Rx from 'rx';
