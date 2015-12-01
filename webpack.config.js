@@ -6,7 +6,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let basePlugins = [
   new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
   new HtmlWebpackPlugin({
-    template: './app/index.html',
+    template: './src/index.html',
     inject: 'body',
     minify: false
   })
@@ -27,7 +27,6 @@ const plugins = basePlugins
   .concat(process.env.NODE_ENV === 'development' ? devPlugins : []);
 
 module.exports = {
-  context: path.resolve(__dirname, 'app'),
   
   stats: {
     colors: true,
@@ -49,7 +48,7 @@ module.exports = {
   },
   
   output: {
-    path: path.resolve(__dirname, 'app', '__build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].bundle.js',
     publicPath: "/",
     sourceMapFilename: '[name].[hash].bundle.js.map',
@@ -84,7 +83,7 @@ module.exports = {
   devServer: {
     inline: true,
     colors: true,
-    contentBase: './app/__build',
+    contentBase: './dist',
     publicPath: '/'
   }
 }

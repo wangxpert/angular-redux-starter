@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DOMAIN = '0.0.0.0';
 
-app.use('/', express.static('app/__build'));
+app.use('/', express.static('dist'));
 
 app.listen(PORT, (err) => {
   if (err) {

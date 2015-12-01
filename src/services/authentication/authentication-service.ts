@@ -4,6 +4,11 @@ const TOKEN_KEY = 'ngcourse-token';
 
 export class AuthenticationService {
   
+  static $inject = [
+    'serverService',
+    '$window'
+  ];
+  
   constructor(
     private serverService: ServerService,
     private $window: ng.IWindowService) { }

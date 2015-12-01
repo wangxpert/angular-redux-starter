@@ -10,7 +10,7 @@ module.exports = function (config) {
     ],
 
     files: [
-      './app/src/tests.entry.ts'
+      './src/tests.entry.ts'
     ],
 
     plugins: [
@@ -25,7 +25,7 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-      './app/src/tests.entry.ts': [
+      './src/tests.entry.ts': [
         'webpack',
         'sourcemap',
         'coverage'
