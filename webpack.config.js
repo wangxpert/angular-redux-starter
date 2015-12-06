@@ -1,9 +1,10 @@
 'use strict';
-let path = require("path");
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let basePlugins = [
+const path = require("path");
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const basePlugins = [
   new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
   new HtmlWebpackPlugin({
     template: './src/index.html',
@@ -12,9 +13,9 @@ let basePlugins = [
   })
 ];
 
-let devPlugins = [];
+const devPlugins = [];
 
-let prodPlugins = [
+const prodPlugins = [
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false
@@ -34,16 +35,13 @@ module.exports = {
   },
   
   entry: {
-    app: './src/app.ts',
+    app: './src/index.ts',
     vendor: [
-      'lodash-compat',
-      'immutable',
-      'rx',
+      'es6-shim',
       'angular',
-      'angular-ui-router',
-      'koast-angular',
-      'basscss/css/basscss.css',
-      'font-awesome/css/font-awesome.css'
+      'redux',
+      'redux-thunk',
+      'ng-redux'
     ]
   },
   

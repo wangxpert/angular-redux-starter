@@ -11,66 +11,6 @@
     "jquery/jquery.d.ts": {
       "commit": "54f064352a3615443f7bff4198078db15e28247b"
     },
-    "rx/rx-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.aggregates.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.time.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.time-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.all.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.binding.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.async.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.async-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.binding-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.coincidence-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.experimental.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.virtualtime.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.coincidence.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.joinpatterns.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.testing.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.backpressure-lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.backpressure.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "rx/rx.lite.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
-    "angular-ui-router/angular-ui-router.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
     "chai/chai.d.ts": {
       "commit": "54f064352a3615443f7bff4198078db15e28247b"
     },
@@ -88,6 +28,9 @@
     },
     "es6-shim/es6-shim.d.ts": {
       "commit": "35989a3ab4834b8e8b2b56788f1d4fc46a25dc8d"
+    },
+    "redux/redux.d.ts": {
+      "commit": "e1cc93526fc1796491e4e3d900728a20414a4ae4"
     }
   }
 }
