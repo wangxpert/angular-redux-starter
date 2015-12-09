@@ -30,7 +30,10 @@
       "commit": "35989a3ab4834b8e8b2b56788f1d4fc46a25dc8d"
     },
     "redux/redux.d.ts": {
-      "commit": "e1cc93526fc1796491e4e3d900728a20414a4ae4"
+      "commit": "7136728255d96038795d93c3e4b43c3c7de8ac1e"
+    },
+    "redux-logger/redux-logger.d.ts": {
+      "commit": "7136728255d96038795d93c3e4b43c3c7de8ac1e"
     }
   }
 }

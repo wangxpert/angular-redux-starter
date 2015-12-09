@@ -2,14 +2,24 @@ import * as angular from 'angular';
 import rootReducer from './reducers';
 import { CounterComponent } from './components';
 
+const createLogger = require('redux-logger');
 const ngRedux = require('ng-redux');
 const thunk = require('redux-thunk');
 
 angular.module('counter', [ngRedux])
   .config([
     '$ngReduxProvider',
-    ($ngReduxProvider) => 
-      $ngReduxProvider.createStoreWith(rootReducer, [thunk])])
+    ($ngReduxProvider) => {
+      const logger = createLogger();
+      let middleware = [thunk];
+
+      if (__DEV__) {
+        middleware.push(logger)
+      }
+
+      $ngReduxProvider.createStoreWith(rootReducer, middleware);
+    }
+  ])
   .directive('ngrCounter', CounterComponent);
 
 angular.element(document).ready(
