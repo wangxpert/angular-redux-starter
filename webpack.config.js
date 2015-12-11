@@ -5,6 +5,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const basePlugins = [
+  new webpack.DefinePlugin({
+    __DEV__: process.env.NODE_ENV !== 'production',
+    __PRODUCTION__: process.env.NODE_ENV === 'production'
+  }),
   new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
   new HtmlWebpackPlugin({
     template: './src/index.html',
@@ -41,7 +45,8 @@ module.exports = {
       'angular',
       'redux',
       'redux-thunk',
-      'ng-redux'
+      'ng-redux',
+      'redux-logger'
     ]
   },
   
