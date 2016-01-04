@@ -6,6 +6,8 @@ const createLogger = require('redux-logger');
 const ngRedux = require('ng-redux');
 const thunk = require('redux-thunk');
 
+declare var __DEV__: any;
+
 angular.module('counter', [ngRedux])
   .config([
     '$ngReduxProvider',
@@ -14,7 +16,7 @@ angular.module('counter', [ngRedux])
       let middleware = [thunk];
 
       if (__DEV__) {
-        middleware.push(logger)
+        middleware.push(logger);
       }
 
       $ngReduxProvider.createStoreWith(rootReducer, middleware);

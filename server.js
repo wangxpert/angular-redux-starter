@@ -1,12 +1,27 @@
 const express = require('express');
+const webpack = require('webpack');
 const winston = require('winston');
 const chalk = require('chalk');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DOMAIN = '0.0.0.0';
 
-app.use('/', express.static('dist'));
+if (process.env.NODE_ENV !== 'production') {
+  const config = require('./webpack.config');
+  const compiler = webpack(config);
+
+  winston.info('Bundling webpack... Please wait.');
+
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: config.output.publicPath,
+    stats: {
+        colors: true,
+        reasons: true
+    }
+  }));
+}
+
+app.get('*', express.static('dist'));
 
 app.listen(PORT, (err) => {
   if (err) {
@@ -14,5 +29,5 @@ app.listen(PORT, (err) => {
     return;
   }
 
-  winston.info(`Listening at http://${ chalk.green(DOMAIN) }:${ chalk.yellow(PORT) }`);
+  winston.info(`Listening on port ${ chalk.yellow(PORT) }`);
 });

@@ -16,11 +16,10 @@ class CounterController {
     '$ngRedux',
     '$scope'
   ];
-  
+
   constructor($ngRedux, $scope: ng.IScope) {
     const unsubscribe = $ngRedux.connect(
       this.mapStateToThis, CounterActions)(this);
-      
     $scope.$on('$destroy', unsubscribe);
   }
 
