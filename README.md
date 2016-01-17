@@ -1,6 +1,14 @@
-# Angular/TypeScript/Webpack Starter
+# Angular 1/TypeScript/Webpack Starter
 
-This is the initial version of our starter project using Angular 1.x, TypeScript and Webpack to tie it all together.
+> Rangle.io official Angular 1.x, Redux, TypeScript and Webpack starter
+
+__Note:__ This is now deprecated. For new projects, you really should be
+thinking about using [Angular 2](https://github.com/rangle/angular2-redux-starter).
+
+## Getting Started
+
+Use our [starter script](https://www.npmjs.com/package/rangle-starter), with
+`anglar-redux-starter` as the `techStack` argument.
 
 ## Commands
 
@@ -17,12 +25,20 @@ This is the initial version of our starter project using Angular 1.x, TypeScript
 
 ## Improvements
 
-This is an initial version of this setup and will be expanded in the future. Refer to the [issues section](https://github.com/rangle/ng-typescript-webpack-starter/issues) to see what needs to be done, or create a [new one](https://github.com/rangle/ng-typescript-webpack-starter/issues/new).
+This is an initial version of this setup and will be expanded in the future. Refer to the [issues section](https://github.com/rangle/angular-redux-starter/issues) to see what needs to be done, or create a [new one](https://github.com/rangle/angular-redux-starter/issues/new).
 
 ## If something doesn't work
 
-Refer to the [issues section](https://github.com/rangle/ng-typescript-webpack-starter/issues) to see if this has already been logged. Otherwise create a [new issue](https://github.com/rangle/ng-typescript-webpack-starter/issues/new).
+Refer to the [issues section](https://github.com/rangle/angular-redux-starter/issues) to see if this has already been logged. Otherwise create a [new issue](https://github.com/rangle/angular-redux-starter/issues/new).
 
 ## Example Application
 
-At the moment, a modified fork of ngcourse-next application is in the repository. The purpose of it is to set some code structure conventions, as well as to provide a test best for css bundling, unit test setup, e2e tests setup etc. etc.
+At the moment, a modified fork of the `ngcourse-next` application is in the repository. The purpose of it is to set some code structure conventions, as well as to provide a test best for css bundling, unit test setup, e2e tests setup etc. etc.
+
+## License
+
+Copyright (c) 2015 rangle.io
+
+[MIT License][MIT]
+
+[MIT]: ./LICENSE "Mit License"
