@@ -8,7 +8,7 @@ const thunk = require('redux-thunk');
 
 declare var __DEV__: any;
 
-angular.module('counter', [ngRedux])
+angular.module('counter', ['ngRedux'])
   .config([
     '$ngReduxProvider',
     ($ngReduxProvider) => {
