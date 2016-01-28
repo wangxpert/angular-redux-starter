@@ -5,11 +5,8 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "angularjs/angular.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
-    },
     "jquery/jquery.d.ts": {
-      "commit": "54f064352a3615443f7bff4198078db15e28247b"
+      "commit": "86dbea8fc37d9473fee465da4f0a21bea4f8cbd9"
     },
     "chai/chai.d.ts": {
       "commit": "54f064352a3615443f7bff4198078db15e28247b"
@@ -34,6 +31,9 @@
     },
     "redux-logger/redux-logger.d.ts": {
       "commit": "7136728255d96038795d93c3e4b43c3c7de8ac1e"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "86dbea8fc37d9473fee465da4f0a21bea4f8cbd9"
     }
   }
 }
