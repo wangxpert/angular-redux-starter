@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const winston = require('winston');
 const chalk = require('chalk');
