@@ -12,28 +12,29 @@
     "node": "4.x"
   },
   "scripts": {
-    "postinstall": "npm run typings; npm run build;",
+    "postinstall": "npm run typings && npm run build",
     "typings": "rimraf typings && typings install",
-    "dev": "NODE_ENV=development nodemon server.js",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "test": "npm run lint && karma start",
-    "lint": "tslint 'src/**/*.ts'"
+    "lint": "tslint './src/**/*.ts'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rangle/ng-typescript-webpack-starter.git"
+    "url": "https://github.com/rangle/anglar-redux-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/rangle/ng-typescript-webpack-starter/issues"
+    "url": "https://github.com/rangle/rangle-starter/issues"
   },
   "devDependencies": {
     "angular": "^1.4.9",
     "angular-mocks": "^1.4.9",
     "chai": "^3.5.0",
     "chalk": "^1.1.1",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "es6-shim": "^0.34.2",
     "express": "^4.13.4",
