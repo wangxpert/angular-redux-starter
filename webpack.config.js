@@ -38,7 +38,9 @@ module.exports = {
   entry: {
     app: './src/index.ts',
     vendor: [
+      'es5-shim',
       'es6-shim',
+      'es6-promise',
       'angular',
       'redux',
       'redux-thunk',
