@@ -6,6 +6,9 @@ const createLogger = require('redux-logger');
 const ngRedux = require('ng-redux');
 const thunk = require('redux-thunk');
 
+// Global styles
+import './styles/index.css';
+
 declare var __DEV__: any;
 
 angular.module('counter', ['ngRedux'])
