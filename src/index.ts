@@ -4,7 +4,7 @@ import { CounterComponent } from './components';
 
 const createLogger = require('redux-logger');
 const ngRedux = require('ng-redux');
-const thunk = require('redux-thunk');
+const thunk = require('redux-thunk').default;
 
 declare var __DEV__: any;
 
