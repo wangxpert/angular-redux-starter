@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const proxy = require('./server/webpack-dev-proxy');
+const loaders = require('./webpack/loaders');
 
 const basePlugins = [
   new webpack.DefinePlugin({
@@ -70,19 +71,18 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.ts$/,
-      loader: 'tslint'
-    }],
+    preLoaders: [
+      loaders.tslint
+    ],
     loaders: [
-      { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
-      { test: /\.html$/, loader: 'raw' },
-      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' },
-      { test: /\.svg/, loader: 'url' },
-      { test: /\.eot/, loader: 'url' },
-      { test: /\.woff/, loader: 'url' },
-      { test: /\.woff2/, loader: 'url' },
-      { test: /\.ttf/, loader: 'url' },
+      loaders.ts,
+      loaders.html,
+      loaders.css,
+      loaders.svg,
+      loaders.eot,
+      loaders.woff,
+      loaders.woff2,
+      loaders.ttf,
     ]
   },
 
@@ -97,4 +97,4 @@ module.exports = {
       require('autoprefixer')
     ];
   }
-}
+};
