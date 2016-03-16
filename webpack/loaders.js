@@ -24,7 +24,7 @@ exports.html = {
 
 exports.css = {
   test: /\.css$/,
-  loader: 'to-string!css!postcss'
+  loader: 'style!css!postcss'
 };
 
 exports.svg = makeUrlLoader(/\.svg$/);
