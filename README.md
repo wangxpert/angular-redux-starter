@@ -7,10 +7,14 @@ thinking about using [Angular 2](https://github.com/rangle/angular2-redux-starte
 
 ## Getting Started
 
-Use our [starter script](https://www.npmjs.com/package/rangle-starter), with
+Use our [starter script](http://npm.im/rangle-starter), with
 `anglar-redux-starter` as the `techStack` argument.
 
 ## npm scripts
+> To see all available scripts:
+```bash
+$ npm run
+```
 
 ### Dev
 ```bash
@@ -24,8 +28,8 @@ Open `http://localhost:8080` in your browser.
 ### Production
 
 ```bash
-npm install
-npm start
+$ npm install
+$ npm start
 ```
 
 This runs a production-ready express server that serves up a bundled and
@@ -35,9 +39,11 @@ Open `http://localhost:8080` in your browser.
 
 ### Tests
 
-#### Single Run
+#### Single Run (with linting and coverage)
 ```bash
-$ npm run test
+$ npm test
+# or
+$ npm t
 ```
 
 #### Watch Files

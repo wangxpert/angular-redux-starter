@@ -1,5 +1,6 @@
 .DS_Store
-node_modules
-dist
-typings
+node_modules/
+dist/
+typings/
 npm-debug.log
+coverage/
