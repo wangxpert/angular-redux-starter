@@ -94,7 +94,6 @@ module.exports = {
       require('postcss-cssnext')({
         browsers: ['ie >= 8', 'last 2 versions']
       }),
-      require('autoprefixer')
     ];
   }
 }
