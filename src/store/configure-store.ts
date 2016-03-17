@@ -1,8 +1,8 @@
 ///<reference path="./dev-types.d.ts"/>
 
+import ReduxThunk from 'redux-thunk';
 const ngRedux = require('ng-redux');
 const createLogger = require('redux-logger');
-const thunk = require('redux-thunk').default;
 import rootReducer from '../reducers';
 
 angular.module('counter.store', [ 'ngRedux' ])
@@ -18,7 +18,7 @@ angular.module('counter.store', [ 'ngRedux' ])
 
 function _getMiddleware() {
   let middleware = [
-    thunk
+    ReduxThunk
   ];
 
   if (__DEV__) {
