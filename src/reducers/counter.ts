@@ -1,12 +1,22 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants';
+import { fromJS } from 'immutable';
 
-export default function counter(state = 0, action) {
+const INITIAL_STATE = fromJS({
+  count: 0,
+});
+
+function counterReducer(state = INITIAL_STATE, action = { type: '' }) {
   switch (action.type) {
+
     case INCREMENT_COUNTER:
-      return state + 1;
+      return state.update('count', (value) => value + 1);
+
     case DECREMENT_COUNTER:
-      return state - 1;
+      return state.update('count', (value) => value - 1);
+
     default:
       return state;
   }
 }
+
+export default counterReducer;

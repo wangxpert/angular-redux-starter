@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
+    "angular-ui-router": "0.2.15",
     "chai": "^3.5.0",
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
@@ -68,6 +69,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.10.0",
+    "immutable": "^3.7.6",
     "istanbul": "^0.4.2",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
