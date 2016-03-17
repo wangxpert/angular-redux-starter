@@ -4,7 +4,6 @@ export class RioFormLabel {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controller: RioFormLabel,
     template: `
       <label ng-transclude>
       </label>

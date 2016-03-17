@@ -4,7 +4,6 @@ export class RioForm {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controller: RioForm,
     template: `
       <form ng-transclude>
       </form>

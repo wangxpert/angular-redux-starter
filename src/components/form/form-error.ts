@@ -4,7 +4,6 @@ export class RioFormError {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controller: RioFormError,
     template: `
       <div class="bold black" ng-transclude>
       </div>
