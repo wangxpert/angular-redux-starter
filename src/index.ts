@@ -68,9 +68,9 @@ angular.module('app', [
   'rio.login',
   'rio.modal'])
   .component(
-    RioApp.selector,
-    RioApp.options
+  RioApp.selector,
+  RioApp.options
   );
 
 angular.element(document).ready(
-  () => angular.bootstrap(document, [ 'app' ]));
+  () => angular.bootstrap(document, ['app']));

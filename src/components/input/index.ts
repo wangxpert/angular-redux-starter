@@ -3,18 +3,24 @@ export class RioFormInput {
   static selector = 'rioFormInput';
 
   static options: ng.IComponentOptions = {
-    transclude: true,
     bindings: {
       'placeholder': '@',
-      'type': '@'
+      'type': '@',
+      'ngModel': '=',
+      'inputName': '@',
+      'required': '@',
     },
-    controllerAs: 'ctrl',
     controller: RioFormInput,
+    controllerAs: 'inputCtrl',
     template: `
       <input
+        name="{{inputCtrl.inputName}}"
         class="block col-12 mb1 input"
-        type="{{ctrl.type || 'text'}}"
-        placeholder="{{ctrl.placeholder}}"/>
+        type="{{inputCtrl.type || 'text'}}"
+        placeholder="{{inputCtrl.placeholder}}"
+        ng-model="inputCtrl.ngModel"
+        ng-required="{{inputCtrl.required}}"
+      />
     `
   };
 }

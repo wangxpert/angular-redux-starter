@@ -4,18 +4,20 @@ export class RioButton {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controllerAs: 'ctrl',
+    controllerAs: 'buttonCtrl',
     bindings: {
+      type: '@',
       classStyles: '@',
       onClick: '&'
     },
     controller: RioButton,
     template: `
       <button
+        type="{{buttonCtrl.type || 'button'}}"
         ng-transclude
-        ng-click='ctrl.onClick()'
-        class='btn btn-primary {{ ctrl.classStyles }}'
-        ng-style="ctrl.buttonStyles"
+        ng-click='buttonCtrl.onClick()'
+        class='btn btn-primary {{ buttonCtrl.classStyles }}'
+        ng-style="buttonCtrl.buttonStyles"
       >
       </button>
     `

@@ -4,6 +4,7 @@ export * from './counter';
 export * from './form';
 export * from './input';
 export * from './login';
+export * from './input';
 export * from './logo';
 export * from './modal';
 export * from './navigator';

@@ -3,33 +3,96 @@ export class RioLoginForm {
   static selector = 'rioLoginForm';
 
   static options: ng.IComponentOptions = {
-    transclude: true,
+    bindings: {
+      onSubmit: '&',
+      hasError: '<',
+      isPending: '<',
+    },
     controller: RioLoginForm,
+    controllerAs: 'loginFormCtrl',
     template: `
-      <rio-form>
-        <rio-alert status="info">Loading...</rio-alert>
-        <rio-alert status="error">Invalid username and password</rio-alert>
+      <rio-form
+        name="loginForm"
+        on-submit="loginFormCtrl.handleSubmit(form)"
+      >
+
+        <rio-alert status="info" ng-if="loginFormCtrl.isPending">
+          Loading...
+        </rio-alert>
+
+        <rio-alert status="info" ng-if="loginFormCtrl.hasError">
+          Invalid username and password
+        </rio-alert>
+
         <rio-form-group>
           <rio-form-label>Username</rio-form-label>
           <rio-form-input
             type="text"
-            placeholder="admin">
+            placeholder="username"
+            input-name="username"
+            ng-model="loginFormCtrl.credentials.username"
+            required="true"
+          >
           </rio-form-input>
-          <rio-form-error>Username required!</rio-form-error>
+          <rio-form-error
+            ng-if="!loginForm.username.$valid && loginForm.username.$dirty">
+            <div ng-if="loginForm.username.$error.required">
+              Username required!
+            </div>
+          </rio-form-error>
         </rio-form-group>
+
         <rio-form-group>
           <rio-form-label>Password</rio-form-label>
           <rio-form-input
             type="password"
-            placeholder="password">
+            input-name="password"
+            placeholder="password"
+            ng-model="loginFormCtrl.credentials.password"
+            required="true"
+          >
           </rio-form-input>
-          <rio-form-error>Password required!</rio-form-error>
+          <rio-form-error
+            ng-if="!loginForm.password.$valid && loginForm.password.$dirty">
+            <div ng-if="loginForm.password.$error.required">
+              Password required!
+            </div>
+          </rio-form-error>
         </rio-form-group>
+
         <rio-form-group>
-          <rio-button class-styles="mr1">Submit</rio-button>
-          <rio-button class-styles="bg-red">Clear</rio-button>
+          <rio-button type="submit" class-styles="mr1">Submit</rio-button>
+          <rio-button
+            class-styles="bg-red"
+            ng-click="loginFormCtrl.clear(loginForm)">
+            Clear
+          </rio-button>
         </rio-form-group>
       </rio-form>
     `
   };
+
+  private onSubmit: Function;
+  private credentials;
+
+  constructor() {
+    this.clear();
+  }
+
+  handleSubmit(form) {
+    this.onSubmit({
+      credentials: this.credentials
+    });
+  }
+
+  clear(form?: any) {
+    if (form) {
+      form.$setPristine();
+      form.$setUntouched();
+    }
+    this.credentials = {
+      username: '',
+      password: ''
+    };
+  }
 }

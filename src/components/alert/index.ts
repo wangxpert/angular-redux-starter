@@ -7,8 +7,8 @@ export class RioAlert {
     bindings: {
       'status': '@'
     },
-    controllerAs: 'alertCtrl',
     controller: RioAlert,
+    controllerAs: 'alertCtrl',
     template: `
       <div class="p2 bold" ng-transclude
         ng-class="alertCtrl.componentColour[alertCtrl.status || 'info']">

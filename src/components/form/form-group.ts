@@ -5,7 +5,8 @@ export class RioFormGroup {
   static options: ng.IComponentOptions = {
     transclude: true,
     template: `
-      <div class="p2" ng-transclude>
+      <div class="p2">
+        <ng-transclude></ng-transclude>
       </div>
     `
   };

@@ -7,16 +7,15 @@ export class RioCounterPage {
   static selector = 'rioCounterPage';
 
   static options: ng.IComponentOptions = {
-    transclude: true,
-    controllerAs: 'ctrl',
     controller: RioCounterPage,
+    controllerAs: 'counterPageCtrl',
     template: `
       <div class="max-width-2 mx-auto">
         <h1 class="center">Counter</h1>
         <rio-counter
-          increment="ctrl.increment()"
-          decrement="ctrl.decrement()"
-          value="ctrl.value">
+          increment="counterPageCtrl.increment()"
+          decrement="counterPageCtrl.decrement()"
+          value="counterPageCtrl.value">
         </rio-counter>
       </div>
     `
@@ -32,7 +31,7 @@ export class RioCounterPage {
 
     // Needed for redux devtools to be able to update application state.
     const unsubscribe = $ngRedux.subscribe(_ => {
-      setTimeout($rootScope.$apply, 100);
+      setTimeout($rootScope.$apply.bind($rootScope), 100);
     });
 
     $scope.$on('$destroy', () => {
