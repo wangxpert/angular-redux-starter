@@ -22,13 +22,23 @@ export class RioCounterPage {
 
   static $inject = [
     '$ngRedux',
-    '$scope'
+    '$scope',
+    '$rootScope'
   ];
 
-  constructor($ngRedux, $scope: ng.IScope) {
-    const unsubscribe = $ngRedux.connect(
+  constructor($ngRedux, $scope: ng.IScope, $rootScope) {
+    const disconnect = $ngRedux.connect(
       this.mapStateToThis, CounterActions)(this);
-    $scope.$on('$destroy', unsubscribe);
+
+    // Needed for redux devtools to be able to update application state.
+    const unsubscribe = $ngRedux.subscribe(_ => {
+      setTimeout($rootScope.$apply, 100);
+    });
+
+    $scope.$on('$destroy', () => {
+      unsubscribe();
+      disconnect();
+    });
   }
 
   mapStateToThis(state) {
