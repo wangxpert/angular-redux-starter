@@ -5,12 +5,12 @@ export class RioLogo {
   static selector = 'rioLogo';
 
   static options: ng.IComponentOptions = {
-    controllerAs: 'ctrl',
+    controllerAs: 'logoCtrl',
     controller: RioLogo,
     template: `
       <img
         class="logo"
-        ng-src="{{ctrl.logoImage}}"
+        ng-src="{{logoCtrl.logoImage}}"
         alt="Rangle.io"
       />
     `

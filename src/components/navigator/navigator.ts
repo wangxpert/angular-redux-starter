@@ -4,7 +4,6 @@ export class RioNavigator {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controller: RioNavigator,
     template: `
       <nav
         ng-transclude

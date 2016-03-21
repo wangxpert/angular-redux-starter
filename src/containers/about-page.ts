@@ -3,7 +3,6 @@ export class RioAboutPage {
   static selector = 'rioAboutPage';
 
   static options: ng.IComponentOptions = {
-    controller: RioAboutPage,
     template: `
       <div class="col-12">
         <h1>About Us</h1>

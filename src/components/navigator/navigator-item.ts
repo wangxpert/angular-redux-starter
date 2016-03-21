@@ -4,7 +4,6 @@ export class RioNavigatorItem {
 
   static options: ng.IComponentOptions = {
     transclude: true,
-    controller: RioNavigatorItem,
     template: `
       <ng-transclude></ng-translucde>
     `
