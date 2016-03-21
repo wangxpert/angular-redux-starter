@@ -13,7 +13,7 @@ export class RioApp {
           on-submit="appCtrl.login(credentials)"
           has-error="appCtrl.session.get('hasError', false)"
           is-pending="appCtrl.session.get('isLoading', false)"
-          ng-if="!appCtrl.isLoggedIn"></login-modal
+          ng-if="!appCtrl.isLoggedIn"
         ></rio-login-modal>
         <rio-navigator>
           <div class="flex flex-auto">
@@ -46,7 +46,7 @@ export class RioApp {
             </rio-navigator-item>
           </div>
         </rio-navigator>
-        <div class="mt3 p1" ng-if="appCtrl.isLoggedIn">
+        <div class="mt3 p1" ng-show="appCtrl.isLoggedIn">
           <ng-outlet></ng-outlet>
         </div>
       </div>

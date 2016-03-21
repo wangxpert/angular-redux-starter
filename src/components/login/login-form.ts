@@ -20,7 +20,7 @@ export class RioLoginForm {
           Loading...
         </rio-alert>
 
-        <rio-alert status="info" ng-if="loginFormCtrl.hasError">
+        <rio-alert status="error" ng-if="loginFormCtrl.hasError">
           Invalid username and password
         </rio-alert>
 
