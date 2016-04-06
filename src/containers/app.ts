@@ -4,7 +4,7 @@ export class RioApp {
 
   static selector = 'rioRoot';
 
-  static options: ng.IComponentOptions = {
+  static options = {
     controller: RioApp,
     controllerAs: 'appCtrl',
     template: `
