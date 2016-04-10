@@ -7,7 +7,7 @@ export class RioButton {
     controllerAs: 'buttonCtrl',
     bindings: {
       type: '@',
-      classStyles: '@',
+      className: '@',
       onClick: '&'
     },
     controller: RioButton,
@@ -15,10 +15,8 @@ export class RioButton {
       <button
         type="{{buttonCtrl.type || 'button'}}"
         ng-transclude
-        ng-click='buttonCtrl.onClick()'
-        class='btn btn-primary {{ buttonCtrl.classStyles }}'
-        ng-style="buttonCtrl.buttonStyles"
-      >
+        ng-click="buttonCtrl.onClick()"
+        class="btn btn-primary {{ buttonCtrl.className }}">
       </button>
     `
   };

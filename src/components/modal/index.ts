@@ -1,4 +1,5 @@
-import './modal.css';
+import { RioModal } from './modal';
+import { RioModalContent } from './modal-content';
 
-export * from './modal-content';
-export * from './modal-mask';
+export { RioModal, RioModalContent };
+

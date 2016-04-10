@@ -10,14 +10,14 @@ export class RioCounterPage {
     controller: RioCounterPage,
     controllerAs: 'counterPageCtrl',
     template: `
-      <div class="max-width-2 mx-auto">
-        <h1 class="center">Counter</h1>
+      <rio-container size="2" center="true">
+        <h2 class="center caps">Counter</h2>
         <rio-counter
           increment="counterPageCtrl.increment()"
           decrement="counterPageCtrl.decrement()"
           value="counterPageCtrl.value">
         </rio-counter>
-      </div>
+      </rio-container>
     `
   };
 

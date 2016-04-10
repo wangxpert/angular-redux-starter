@@ -1,6 +1,6 @@
-export class RioFormLabel {
+export class RioLabel {
 
-  static selector = 'rioFormLabel';
+  static selector = 'rioLabel';
 
   static options: ng.IComponentOptions = {
     transclude: true,

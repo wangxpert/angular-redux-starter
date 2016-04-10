@@ -8,11 +8,12 @@ export class RioLogo {
     controllerAs: 'logoCtrl',
     controller: RioLogo,
     template: `
-      <img
-        class="logo"
-        ng-src="{{logoCtrl.logoImage}}"
-        alt="Rangle.io"
-      />
+      <div className="flex items-center">
+        <img
+          class="logo"
+          ng-src="{{logoCtrl.logoImage}}"
+          alt="Rangle.io">
+      </div>
     `
   };
 
