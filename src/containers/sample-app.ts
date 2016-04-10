@@ -1,50 +1,44 @@
 import {loginUser, logoutUser} from '../actions/session';
 
-export class RioApp {
+export class RioSampleApp {
 
-  static selector = 'rioRoot';
+  static selector = 'rioSampleApp';
 
   static options = {
-    controller: RioApp,
+    controller: RioSampleApp,
     controllerAs: 'appCtrl',
     template: `
-      <div class="col-12">
+      <div>
         <rio-login-modal
           on-submit="appCtrl.login(credentials)"
           has-error="appCtrl.session.get('hasError', false)"
           is-pending="appCtrl.session.get('isLoading', false)"
-          ng-if="!appCtrl.isLoggedIn"
-        ></rio-login-modal>
+          ng-if="!appCtrl.isLoggedIn">
+        </rio-login-modal>
         <rio-navigator>
-          <div class="flex flex-auto">
+          <rio-navigator-item mr="true">
+            <rio-logo></rio-logo>
+          </rio-navigator-item>
 
-            <rio-navigator-item class="p1">
-              <rio-logo></rio-logo>
-            </rio-navigator-item>
-
-            <rio-navigator-item class="p1" ng-if="appCtrl.isLoggedIn">
-              <a ng-link="['Counter']" class="text-decoration-none">Counter</a>
-            </rio-navigator-item>
-            <rio-navigator-item class="p1" ng-if="appCtrl.isLoggedIn">
-              <a ng-link="['About']" class="text-decoration-none">About</a>
-            </rio-navigator-item>
-
-          </div>
-          <div class="flex flex-end"  ng-if="appCtrl.isLoggedIn">
-            <rio-navigator-item class="p1 bold">
-              {{
-                appCtrl.session.getIn(['user', 'firstName'], '') + ' ' +
-                appCtrl.session.getIn(['user', 'lastName'], '') }}
-            </rio-navigator-item>
-            <rio-navigator-item>
-              <rio-button
-                ng-click="appCtrl.logout()"
-                classStyles="bg-red white"
-              >
-                Logout
-              </rio-button>
-            </rio-navigator-item>
-          </div>
+          <rio-navigator-item mr="true" ng-if="appCtrl.isLoggedIn">
+            <a ng-link="['Counter']" class="text-decoration-none">Counter</a>
+          </rio-navigator-item>
+          <rio-navigator-item class="p1" ng-if="appCtrl.isLoggedIn">
+            <a ng-link="['About']" class="text-decoration-none">About Us</a>
+          </rio-navigator-item>
+          <div class="flex flex-auto"></div>
+          <rio-navigator-item mr="true">
+            {{
+              appCtrl.session.getIn(['user', 'firstName'], '') + ' ' +
+              appCtrl.session.getIn(['user', 'lastName'], '') }}
+          </rio-navigator-item>
+          <rio-navigator-item>
+            <rio-button
+              ng-click="appCtrl.logout()"
+              class-name="bg-red white">
+              Logout
+            </rio-button>
+          </rio-navigator-item>
         </rio-navigator>
         <div class="mt3 p1" ng-show="appCtrl.isLoggedIn">
           <ng-outlet></ng-outlet>

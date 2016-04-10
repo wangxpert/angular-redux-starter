@@ -4,13 +4,13 @@ export class RioAboutPage {
 
   static options: ng.IComponentOptions = {
     template: `
-      <div class="col-12">
-        <h1>About Us</h1>
+      <rio-container size="4" center="true">
+        <h2 class="caps">About Us</h2>
         <p>
           Rangle.io is a next-generation HTML5 design and development firm
           dedicated to modern, responsive web and mobile applications.
         </p>
-      </div>
+      </rio-container>
     `
   };
 }

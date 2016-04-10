@@ -4,23 +4,26 @@ export class RioCounter {
 
   static options: ng.IComponentOptions = {
     bindings: {
+      value: '<',
       increment: '&',
-      decrement: '&',
-      value: '<'
+      decrement: '&'
     },
     controller: RioCounter,
     controllerAs: 'counterCtrl',
     template: `
       <div class="flex">
         <rio-button
-          class="flex items-center"
-          on-click="counterCtrl.decrement()"
-          class-styles=" bg-black">
+          class-name="bg-black col-2"
+          on-click="counterCtrl.decrement()">
           -
-          </rio-button>
-        <div class="flex-auto center h1">{{ counterCtrl.value }}</div>
+        </rio-button>
+
+        <div class="flex-auto flex-center center h1">
+          {{ counterCtrl.value }}
+        </div>
+
         <rio-button
-          class="flex items-center"
+          class-name="col-2"
           on-click="counterCtrl.increment()">
           +
         </rio-button>

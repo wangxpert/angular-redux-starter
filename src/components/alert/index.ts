@@ -11,15 +11,18 @@ export class RioAlert {
     controllerAs: 'alertCtrl',
     template: `
       <div class="p2 bold" ng-transclude
-        ng-class="alertCtrl.componentColour[alertCtrl.status || 'info']">
+        ng-class="alertCtrl.componentColour">
       </div>
     `
   };
 
-  private componentColour: Object = {
-    info: 'bg-blue white',
-    warning: 'bg-yellow black',
-    success: 'bg-green black',
-    error: 'bg-red white'
+  status: String;
+
+  componentColour = {
+    'bg-blue': this.status === 'info',
+    'bg-yellow': this.status === 'warning',
+    'bg-green': this.status === 'success',
+    'bg-red': this.status === 'error',
+    'white': this.status === 'info' || this.status === 'error'
   };
 }

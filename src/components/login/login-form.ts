@@ -13,8 +13,7 @@ export class RioLoginForm {
     template: `
       <rio-form
         name="loginForm"
-        on-submit="loginFormCtrl.handleSubmit(form)"
-      >
+        on-submit="loginFormCtrl.handleSubmit(form)">
 
         <rio-alert status="info" ng-if="loginFormCtrl.isPending">
           Loading...
@@ -25,15 +24,14 @@ export class RioLoginForm {
         </rio-alert>
 
         <rio-form-group>
-          <rio-form-label>Username</rio-form-label>
-          <rio-form-input
+          <rio-label>Username</rio-label>
+          <rio-input
             type="text"
             placeholder="username"
             input-name="username"
             ng-model="loginFormCtrl.credentials.username"
-            required="true"
-          >
-          </rio-form-input>
+            required="true">
+          </rio-input>
           <rio-form-error
             ng-if="!loginForm.username.$valid && loginForm.username.$dirty">
             <div ng-if="loginForm.username.$error.required">
@@ -43,15 +41,14 @@ export class RioLoginForm {
         </rio-form-group>
 
         <rio-form-group>
-          <rio-form-label>Password</rio-form-label>
-          <rio-form-input
+          <rio-label>Password</rio-label>
+          <rio-input
             type="password"
             input-name="password"
             placeholder="password"
             ng-model="loginFormCtrl.credentials.password"
-            required="true"
-          >
-          </rio-form-input>
+            required="true">
+          </rio-input>
           <rio-form-error
             ng-if="!loginForm.password.$valid && loginForm.password.$dirty">
             <div ng-if="loginForm.password.$error.required">
@@ -61,9 +58,9 @@ export class RioLoginForm {
         </rio-form-group>
 
         <rio-form-group>
-          <rio-button type="submit" class-styles="mr1">Submit</rio-button>
+          <rio-button type="submit" class-name="mr1">Submit</rio-button>
           <rio-button
-            class-styles="bg-red"
+            class-name="bg-red"
             ng-click="loginFormCtrl.clear(loginForm)">
             Clear
           </rio-button>

@@ -1,6 +1,6 @@
-export class RioFormInput {
+export class RioInput {
 
-  static selector = 'rioFormInput';
+  static selector = 'rioInput';
 
   static options: ng.IComponentOptions = {
     bindings: {
@@ -10,7 +10,7 @@ export class RioFormInput {
       'inputName': '@',
       'required': '@',
     },
-    controller: RioFormInput,
+    controller: RioInput,
     controllerAs: 'inputCtrl',
     template: `
       <input

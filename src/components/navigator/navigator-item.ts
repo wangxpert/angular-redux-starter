@@ -5,7 +5,8 @@ export class RioNavigatorItem {
   static options: ng.IComponentOptions = {
     transclude: true,
     template: `
-      <ng-transclude></ng-translucde>
+      <div class="mx1" ng-transclude>
+      </div>
     `
   };
 }

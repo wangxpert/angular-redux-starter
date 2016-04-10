@@ -7,17 +7,18 @@ import './styles/index.css';
 
 import {
   RioAlert,
+  RioContainer,
   RioCounter,
   RioButton,
   RioForm,
   RioFormError,
   RioFormGroup,
-  RioFormLabel,
-  RioFormInput,
+  RioLabel,
+  RioInput,
   RioLoginForm,
   RioLoginModal,
+  RioModal,
   RioModalContent,
-  RioModalMask,
   RioNavigator,
   RioNavigatorItem,
   RioLogo,
@@ -25,12 +26,12 @@ import {
 
 import { RioAboutPage } from './containers/about-page';
 import { RioCounterPage } from './containers/counter-page';
-import { RioApp } from './containers/app';
+import { RioSampleApp } from './containers/sample-app';
 
 import { RouterConfig } from './services';
 
 angular.module('rio.router', ['ngComponentRouter'])
-  .value('$routerRootComponent', RioApp.selector)
+  .value('$routerRootComponent', RioSampleApp.selector)
   .config(RouterConfig);
 
 
@@ -38,12 +39,12 @@ angular.module('rio.form', [])
   .component(RioForm.selector, RioForm.options)
   .component(RioFormError.selector, RioFormError.options)
   .component(RioFormGroup.selector, RioFormGroup.options)
-  .component(RioFormInput.selector, RioFormInput.options)
-  .component(RioFormLabel.selector, RioFormLabel.options);
+  .component(RioInput.selector, RioInput.options)
+  .component(RioLabel.selector, RioLabel.options);
 
 angular.module('rio.modal', [])
   .component(RioModalContent.selector, RioModalContent.options)
-  .component(RioModalMask.selector, RioModalMask.options);
+  .component(RioModal.selector, RioModal.options);
 
 angular.module('rio.login', [])
   .component(RioLoginForm.selector, RioLoginForm.options)
@@ -52,6 +53,7 @@ angular.module('rio.login', [])
 angular.module('rio.components', ['counter.store'])
   .component(RioCounterPage.selector, RioCounterPage.options)
   .component(RioAboutPage.selector, RioAboutPage.options)
+  .component(RioContainer.selector, RioContainer.options)
   .component(RioCounter.selector, RioCounter.options)
   .component(RioButton.selector, RioButton.options)
   .component(RioNavigator.selector, RioNavigator.options)
@@ -68,8 +70,8 @@ angular.module('app', [
   'rio.login',
   'rio.modal'])
   .component(
-  RioApp.selector,
-  RioApp.options
+  RioSampleApp.selector,
+  RioSampleApp.options
   );
 
 angular.element(document).ready(

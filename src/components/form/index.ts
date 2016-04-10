@@ -1,4 +1,7 @@
-export * from './form';
-export * from './form-error';
-export * from './form-group';
-export * from './form-label';
+import { RioForm } from './form';
+import { RioFormError } from './form-error';
+import { RioFormGroup } from './form-group';
+import { RioLabel } from './form-label';
+import { RioInput } from './input';
+
+export { RioForm, RioFormError, RioFormGroup, RioLabel, RioInput };
