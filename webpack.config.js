@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const proxy = require('./server/webpack-dev-proxy');
 const loaders = require('./webpack/loaders');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 
 const basePlugins = [
   new webpack.DefinePlugin({
@@ -19,6 +20,11 @@ const basePlugins = [
 
 const devPlugins = [
   new webpack.NoErrorsPlugin(),
+  new styleLintPlugin({
+    configFile: './.stylelintrc',
+    files: ['src/**/*.css'],
+    failOnError: false,
+  }),
 ];
 
 const prodPlugins = [
