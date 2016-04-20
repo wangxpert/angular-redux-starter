@@ -5,13 +5,16 @@ export class RioAlert {
   static options: ng.IComponentOptions = {
     transclude: true,
     bindings: {
-      'status': '@'
+      qaid: '@',
+      status: '@'
     },
     controller: RioAlert,
     controllerAs: 'alertCtrl',
     template: `
-      <div class="p2 bold" ng-transclude
-        ng-class="alertCtrl.componentColour">
+      <div ng-attr-id="{{alertCtrl.qaid}}"
+        class="p2 bold"
+        ng-class="alertCtrl.componentColour"
+        ng-transclude>
       </div>
     `
   };
@@ -23,6 +26,6 @@ export class RioAlert {
     'bg-yellow': this.status === 'warning',
     'bg-green': this.status === 'success',
     'bg-red': this.status === 'error',
-    'white': this.status === 'info' || this.status === 'error'
+    white: this.status === 'info' || this.status === 'error'
   };
 }

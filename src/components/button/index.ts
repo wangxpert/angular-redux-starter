@@ -6,6 +6,7 @@ export class RioButton {
     transclude: true,
     controllerAs: 'buttonCtrl',
     bindings: {
+      qaid: '@',
       type: '@',
       className: '@',
       onClick: '&'
@@ -13,6 +14,7 @@ export class RioButton {
     controller: RioButton,
     template: `
       <button
+        ng-attr-id="{{buttonCtrl.qaid}}"
         type="{{buttonCtrl.type || 'button'}}"
         ng-transclude
         ng-click="buttonCtrl.onClick()"
