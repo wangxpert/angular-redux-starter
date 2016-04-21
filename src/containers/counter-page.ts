@@ -11,7 +11,10 @@ export class RioCounterPage {
     controllerAs: 'counterPageCtrl',
     template: `
       <rio-container size="2" center="true">
-        <h2 class="center caps">Counter</h2>
+        <h2 id="qa-counter-heading"
+          class="center caps">
+          Counter
+        </h2>
         <rio-counter
           increment="counterPageCtrl.increment()"
           decrement="counterPageCtrl.decrement()"

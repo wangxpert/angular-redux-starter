@@ -12,20 +12,26 @@ export class RioLoginForm {
     controllerAs: 'loginFormCtrl',
     template: `
       <rio-form
-        name="loginForm"
+        name="loginFormCtrl.loginForm"
         on-submit="loginFormCtrl.handleSubmit(form)">
 
-        <rio-alert status="info" ng-if="loginFormCtrl.isPending">
+        <rio-alert
+          status="error"
+          ng-if="loginFormCtrl.isPending">
           Loading...
         </rio-alert>
 
-        <rio-alert status="error" ng-if="loginFormCtrl.hasError">
+        <rio-alert
+          qaid="qa-alert"
+          status="error"
+          ng-if="loginFormCtrl.hasError">
           Invalid username and password
         </rio-alert>
 
         <rio-form-group>
-          <rio-label>Username</rio-label>
+          <rio-label qaid="qa-uname-label">Username</rio-label>
           <rio-input
+            qaid="qa-uname-input"
             type="text"
             placeholder="Username"
             input-name="username"
@@ -33,16 +39,16 @@ export class RioLoginForm {
             required="true">
           </rio-input>
           <rio-form-error
-            ng-if="!loginForm.username.$valid && loginForm.username.$dirty">
-            <div ng-if="loginForm.username.$error.required">
-              Username required!
-            </div>
+            qaid="qa-uname-validation"
+            ng-if="loginFormCtrl.showNameWarning()">
+            Username is required.
           </rio-form-error>
         </rio-form-group>
 
         <rio-form-group>
-          <rio-label>Password</rio-label>
+          <rio-label qaid="qa-password-label">Password</rio-label>
           <rio-input
+            qaid="qa-password-input"
             type="password"
             input-name="password"
             placeholder="Password"
@@ -50,18 +56,23 @@ export class RioLoginForm {
             required="true">
           </rio-input>
           <rio-form-error
-            ng-if="!loginForm.password.$valid && loginForm.password.$dirty">
-            <div ng-if="loginForm.password.$error.required">
-              Password required!
+            qaid="qa-password-validation"
+            ng-if="loginFormCtrl.showPasswordWarning()">
+            <div ng-if="loginFormCtrl.loginForm.password.$error.required">
+              Password is required.
             </div>
           </rio-form-error>
         </rio-form-group>
 
         <rio-form-group>
-          <rio-button type="submit" class-name="mr1">Login</rio-button>
           <rio-button
+            qaid="qa-login-button"
+            type="submit"
+            class-name="mr1">Login</rio-button>
+          <rio-button
+            qiad="qa-clear-button"
             class-name="bg-red"
-            ng-click="loginFormCtrl.clear(loginForm)">
+            ng-click="loginFormCtrl.clear()">
             Clear
           </rio-button>
         </rio-form-group>
@@ -71,21 +82,39 @@ export class RioLoginForm {
 
   private onSubmit: Function;
   private credentials;
+  private loginForm: any;
 
   constructor() {
     this.clear();
   }
 
-  handleSubmit(form) {
-    this.onSubmit({
-      credentials: this.credentials
-    });
+  showNameWarning() {
+    return this.loginForm.username.$touched
+      && !this.loginForm.username.$valid
+      && this.loginForm.username.$error.required;
   }
 
-  clear(form?: any) {
-    if (form) {
-      form.$setPristine();
-      form.$setUntouched();
+  showPasswordWarning() {
+    return this.loginForm.password.$touched
+      && !this.loginForm.password.$valid
+      && this.loginForm.password.$error.required;
+  }
+
+  handleSubmit(form) {
+    this.loginForm.username.$setTouched(true);
+    this.loginForm.password.$setTouched(true);
+
+    if (this.credentials.username && this.credentials.password) {
+      this.onSubmit({
+        credentials: this.credentials
+      });
+    }
+  }
+
+  clear() {
+    if (this.loginForm) {
+      this.loginForm.$setPristine();
+      this.loginForm.$setUntouched();
     }
     this.credentials = {
       username: '',
