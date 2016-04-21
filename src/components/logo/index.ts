@@ -1,5 +1,3 @@
-import './logo.css';
-
 export class RioLogo {
 
   static selector = 'rioLogo';
@@ -10,7 +8,7 @@ export class RioLogo {
     template: `
       <div className="flex items-center">
         <img
-          class="logo"
+          ng-class="logoCtrl.styles.logo"
           ng-src="{{logoCtrl.logoImage}}"
           alt="Rangle.io">
       </div>
@@ -18,4 +16,5 @@ export class RioLogo {
   };
 
   private logoImage = require('../../assets/rangleio-logo.svg');
+  private styles = require('./logo.css');
 }
