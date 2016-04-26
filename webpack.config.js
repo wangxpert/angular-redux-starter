@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const proxy = require('./server/webpack-dev-proxy');
 const loaders = require('./webpack/loaders');
 const styleLintPlugin = require('stylelint-webpack-plugin');
+const SplitByPathPlugin = require('webpack-split-by-path');
 
 const basePlugins = [
   new webpack.DefinePlugin({
@@ -11,7 +12,9 @@ const basePlugins = [
     __PRODUCTION__: process.env.NODE_ENV === 'production',
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   }),
-  new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].js'),
+  new SplitByPathPlugin([
+    { name: 'vendor', path: [__dirname + '/node_modules/'] }
+  ]),
   new HtmlWebpackPlugin({
     template: './src/index.html',
     inject: 'body'
@@ -65,18 +68,12 @@ module.exports = {
 
   entry: {
     app: './src/index.ts',
-    vendor: [
+    shims: [
       'es5-shim',
       'es6-shim',
       'es6-promise',
-      'immutable',
-      'angular',
-      'ngcomponentrouter',
-      'redux',
-      'redux-thunk',
-      'ng-redux',
-      'redux-logger'
-    ]
+    ],
+    angular: ['angular', 'ngcomponentrouter'],
   },
 
   output: {
