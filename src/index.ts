@@ -1,5 +1,10 @@
+import 'es5-shim';
+import 'es6-shim';
+import 'es6-promise';
+
 import * as angular from 'angular';
 
+import 'ngcomponentrouter';
 import './store/configure-store';
 
 // Global styles
