@@ -68,12 +68,6 @@ module.exports = {
 
   entry: {
     app: './src/index.ts',
-    shims: [
-      'es5-shim',
-      'es6-shim',
-      'es6-promise',
-    ],
-    angular: ['angular', 'ngcomponentrouter'],
   },
 
   output: {
