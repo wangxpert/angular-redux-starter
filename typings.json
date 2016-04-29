@@ -8,9 +8,6 @@
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#86dbea8fc37d9473fee465da4f0a21bea4f8cbd9",
     "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#54f064352a3615443f7bff4198078db15e28247b",
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#54f064352a3615443f7bff4198078db15e28247b",
-    "redux": "registry:dt/redux#3.3.1+20160326112656",
-    "redux-logger": "registry:dt/redux-logger#2.6.0+20160316155526",
-    "redux-thunk": "registry:dt/redux-thunk#2.0.1+20160317120654",
     "sinon": "github:DefinitelyTyped/DefinitelyTyped/sinon/sinon.d.ts#54f064352a3615443f7bff4198078db15e28247b"
   }
 }

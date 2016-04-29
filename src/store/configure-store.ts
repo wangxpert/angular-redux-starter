@@ -1,12 +1,13 @@
 ///<reference path="./dev-types.d.ts"/>
 
 import {fromJS} from 'immutable';
-import ReduxThunk from 'redux-thunk';
+const ReduxThunk = require('redux-thunk').default;
 const ngRedux = require('ng-redux');
+const persistState = require('redux-localstorage');
+
 import logger from './configure-logger';
 import promiseMiddleware from '../middleware/promise-middleware';
 import reducer from '../reducers';
-const persistState = require('redux-localstorage');
 
 angular.module('counter.store', ['ngRedux'])
   .config(
