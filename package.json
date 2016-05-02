@@ -79,7 +79,7 @@
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.5",
-    "karma-mocha": "^0.2.2",
+    "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.2",
     "karma-sinon": "^1.0.4",
     "karma-source-map-support": "^1.1.0",
