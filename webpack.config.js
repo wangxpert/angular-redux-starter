@@ -38,6 +38,7 @@ const prodPlugins = [
       warnings: false,
     },
   }),
+  new webpack.NoErrorsPlugin(),
 ];
 
 const plugins = basePlugins
