@@ -1,18 +1,41 @@
 'use strict';
 
+process.env.TEST = true;
+
+const plugins = require('./webpack/plugins');
 const loaders = require('./webpack/loaders');
 const postcssInit = require('./webpack/postcss');
 
 module.exports = (config) => {
   config.set({
     frameworks: [
-      'mocha',
       'chai',
       'sinon',
-      'source-map-support',
+      'jasmine',
     ],
 
-    files: ['./src/tests.entry.ts'],
+    plugins: [
+      'karma-chai',
+      'karma-sinon',
+      'karma-jasmine',
+      'karma-sourcemap-writer',
+      'karma-sourcemap-loader',
+      'karma-webpack',
+      'karma-coverage',
+      'karma-mocha-reporter',
+      'karma-spec-reporter',
+      'karma-chrome-launcher',
+    ],
+
+    files: [
+      './src/tests.entry.ts',
+      {
+        pattern: '**/*.map',
+        served: true,
+        included: false,
+        watched: true,
+      },
+    ],
 
     preprocessors: {
       './src/**/*.ts': [
@@ -21,27 +44,26 @@ module.exports = (config) => {
       ],
       './src/**/!(*.test|tests.*).ts': [
         'coverage',
+        'sourcemap',
       ],
     },
 
     webpack: {
       entry: './src/tests.entry.ts',
       devtool: 'inline-source-map',
-      verbose: true,
+      verbose: false,
       resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
       },
       module: {
-        loaders: [
-          loaders.tsTest,
-        ],
+        loaders: combinedLoaders(),
         postLoaders: [
           loaders.istanbulInstrumenter,
         ],
       },
       stats: { colors: true, reasons: true },
-      debug: true,
-      plugins: [],
+      debug: false,
+      plugins: plugins,
       postcss: postcssInit,
     },
 
@@ -70,3 +92,20 @@ module.exports = (config) => {
     singleRun: true,
   });
 };
+
+function combinedLoaders() {
+  return Object.keys(loaders).reduce(function reduce(aggregate, k) {
+    switch (k) {
+    case 'tslint': // intolerably slow
+      return aggregate;
+    case 'ts':
+    case 'tsTest':
+      return aggregate.concat([ // force inline source maps
+        Object.assign(loaders[k],
+          { query: { babelOptions: { sourceMaps: 'inline' } } })]);
+    default:
+      return aggregate.concat([loaders[k]]);
+    }
+  },
+  []);
+}
